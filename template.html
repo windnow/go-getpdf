@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .header { text-align: center; margin-bottom: 20px; }
+        .logo { text-align: center; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        table, th, td { border: 1px solid black; }
+        th, td { padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="file:///srv/logo.png" alt="Логотип компании" height="150">
+    </div>
+    <div class="header">
+        <h1>Накладная</h1>
+    </div>
+    <p>Клиент: {{.Client.Description}}</p>
+    <p>Магазин: {{.Store.Description}}</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Товар</th>
+                <th>Цена</th>
+                <th>Количество</th>
+                <th>Сумма</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{range .Goods}}
+            <tr>
+                <td>{{.Good.Description}}</td>
+                <td>{{.Price}}</td>
+                <td>{{.Count}}</td>
+                <td>{{.Sum}}</td>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
+</body>
+</html>
